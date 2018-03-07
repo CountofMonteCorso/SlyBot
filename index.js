@@ -1,5 +1,10 @@
 const Discord = require("discord.js");
-const slybot = new Discord.Client();
+const commando = require("discord.js-commando");
+const slybot = new commando.Client();
+
+slybot.registry.registerGroup("random", "Random");
+slybot.registry.registerDefaults();
+slybot.registry.registerCommandsIn(__dirname + "/commands")
 
 slybot.on("message", (message) => {
 	if (message.content == 'ping'){
